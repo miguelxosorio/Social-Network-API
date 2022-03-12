@@ -11,4 +11,4 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json()); // convert request body to JSON
 app.use(express.urlencoded({ extended: true })); // also converts request body to JSON  - extended true = post nested objects
 
-app.listen(PORT, ()=> console.log(` Connected on localhost:${PORT}`));
+app.listen(PORT, ()=> console.log(`🎯 Connected on localhost:${PORT}`));
