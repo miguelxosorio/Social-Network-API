@@ -20,6 +20,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/social-ne
 
 // use this to log mongo queries being executed!
 // enable logging collection methods + arguments to the console/file
+// 'debug': If true, prints the operations mongoose sends to MongoDB to the console
 mongoose.set('debug', true);
 
 // listens for connections on the specified host and port
