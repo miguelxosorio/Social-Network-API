@@ -7,12 +7,12 @@ const UserSchema = new Schema(
         username: {
             type: String,
             unique: true,
-            required: true,
-            Trim: true
+            required: 'You must enter a username',
+            trim: true
         },
         email: {
             type: String,
-            required: true,
+            required: 'You must enter a valid email',
             trim: true,
             unique: true,
             match: [/.+\@.+\..+/]
@@ -38,6 +38,11 @@ const UserSchema = new Schema(
         id: false           // We set id to false because this is a virtual that Mongoose returns, and we don’t need it
     }
 );
+
+// add virtuals here
+UserSchema.virtual('friendCount').get(function() {
+    return this.friends.length;
+});
 
 // create the User model using the UserSchema
 const User = model('User', UserSchema);
