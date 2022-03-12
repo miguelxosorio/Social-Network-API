@@ -2,7 +2,7 @@
 const router = require('express').Router();
 
 // implement controller methods
-const { createUser, getAllUsers, getUserById } = require('../../controllers/user-controller');
+const { createUser, getAllUsers, getUserById, updateUser } = require('../../controllers/user-controller');
 
 // set up routes
 // we simply provide the name of the controller method as the callback
@@ -17,6 +17,7 @@ router
 router
 .route('/:id')
 .get(getUserById)
+.put(updateUser)
 
 // export
 module.exports = router;
