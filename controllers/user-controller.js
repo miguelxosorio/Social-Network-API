@@ -7,6 +7,11 @@ const userController = {
     // Get all Users
     getAllUsers(req, res) {
         User.find({})
+        .then(dbUserData => res.json(dbUserData))
+        .catch(err => {
+            console.log(err);
+            res.status(400).json(err);
+        })
     },
     
     // Get a single user by its _id and populated thoought and friend data
