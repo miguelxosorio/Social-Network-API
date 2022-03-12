@@ -15,8 +15,20 @@ const userController = {
     },
     
     // Get a single user by its _id and populated thoought and friend data
-    getUserById(req, res) {
-        User.findOne()
+    getUserById({ params }, res) { // Instead of accessing the entire req we destructured params out of it because that's the only data we need for this req to be fulfilled
+        User.findOne({ _id: params.id })
+        .then(dbUserData => {
+            // if no user is found, error
+            if(!dbUserData) {
+                res.status(404).json({ message: 'No user found with this id!' });
+                return;
+            }
+            res.json(dbUserData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(400).json(err);
+        });
     },
     
     // Post a new user - POST /api/users
