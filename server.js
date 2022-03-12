@@ -11,4 +11,10 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json()); // convert request body to JSON
 app.use(express.urlencoded({ extended: true })); // also converts request body to JSON  - extended true = post nested objects
 
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/social-network', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+
+// listens for connections on the specified host and port
 app.listen(PORT, ()=> console.log(`🎯 Connected on localhost:${PORT}`));
