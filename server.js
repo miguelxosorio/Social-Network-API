@@ -11,6 +11,9 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json()); // convert request body to JSON
 app.use(express.urlencoded({ extended: true })); // also converts request body to JSON  - extended true = post nested objects
 
+// use api routes we set up 
+app.use(require('./routes'));
+
 // mongoose connects when app is started - tells Mongoose which database we want to connect to.
 // MongoDB will find and connect to the database if it exists or create the database if it doesn't.
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/social-network-db', {
