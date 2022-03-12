@@ -1,5 +1,5 @@
 // mongoose dependencies
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 
 // Schema Constructor
 const UserSchema = new Schema(
