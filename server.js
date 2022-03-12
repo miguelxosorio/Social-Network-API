@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true })); // also converts request body t
 
 // mongoose connects when app is started - tells Mongoose which database we want to connect to.
 // MongoDB will find and connect to the database if it exists or create the database if it doesn't.
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/social-network', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/social-network-db', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
