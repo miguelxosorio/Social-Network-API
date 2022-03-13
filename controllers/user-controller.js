@@ -61,8 +61,16 @@ const userController = {
     },
     
     // Delete user by its _id
-    deleteUser() {
-        User.findOneAndDelete()
+    deleteUser({ params }, res) {
+        User.findOneAndDelete({ _id: params.id })
+        .then(dbUserData => {
+            if(!dbUserData) {
+                res.status(404).json({ message: 'No user found with this id' })
+                return;
+            }
+            res.json(dbUserData);
+        })
+        .catch(err => res.status(404).json(err));
     }
     
     // Bonus remove a user's associated thoughts when deleted - remove thoughts when user is deleted
