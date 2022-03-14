@@ -5,8 +5,13 @@ const { User, Thought } = require('../models');
 const thoughtController = {
 
     // GET all thoughts
-    getAllThoughts() {
-
+    getAllThoughts(req, res) {
+        Thought.find({})
+        .then(dbThoughtData => res.json(dbThoughtData))
+        .catch(err => {
+            console.log(err)
+            res.status(400).json(err);
+        })
     }, 
 
     // Get to get a single thought by its id
@@ -26,7 +31,7 @@ const thoughtController = {
 
     // delete to remove a thought by it's _id
     deleteThought() {
-        
+
     }
 };
 
