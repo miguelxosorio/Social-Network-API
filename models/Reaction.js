@@ -1,5 +1,5 @@
 // mongoose dep
-const { Schema, model } = require('mongoose')
+const { Schema, model, Types } = require('mongoose')
 
 // moment
 const moment = require('moment');
@@ -13,6 +13,7 @@ const ReactionSchema = new Schema(
         },
         reactionBody: {
             type: String,
+            trim: true,
             required: true,
             maxlength: 280
         },
@@ -31,7 +32,7 @@ const ReactionSchema = new Schema(
         toJSON: {
             getters: true
         },
-        id: false
+        // id: false
     }
 );
 

@@ -7,7 +7,7 @@ const { createThought, getAllThoughts, getThoughtById, updateThought, deleteThou
 // Routes
 // GET all thoughts, POST a thought - /api/thoughts
 
-// api/thoughts/userId
+// api/thoughts/:userId
 router
 .route('/:userId')
 .post(createThought);
@@ -16,6 +16,7 @@ router
 router
 .route('/')
 .get(getAllThoughts);
+
 // GET, PUT, DELETE api/thoughts/:id
 router
 .route('/:id')

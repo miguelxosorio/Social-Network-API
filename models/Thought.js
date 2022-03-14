@@ -26,13 +26,16 @@ const ThoughtSchema = new Schema(
             type: String,
             required: true
         },
+        // associate reactions with thoughts - use ReactionSchema to validate data for a reaction
+        // unlike the relationship between user and thought date, reactions will be nested directly into the thought's document and not referred to
         reactions: [ReactionSchema]
     },
     {
         toJSON: {
             virtuals: true,
             getters: true
-        }
+        },
+        id: false
     }
 );
 
