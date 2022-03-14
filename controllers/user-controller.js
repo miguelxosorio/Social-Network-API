@@ -26,6 +26,15 @@ const userController = {
     // Get a single user by its _id and populated thoought and friend data
     getUserById({ params }, res) { // Instead of accessing the entire req we destructured params out of it because that's the only data we need for this req to be fulfilled
         User.findOne({ _id: params.id })
+        .populate({
+            path: 'thoughts',
+            select: '-__v'
+        })
+        .populate({
+            path: 'friends',
+            select: '-__v'
+        })
+        .select('-__v')
         .then(dbUserData => {
             // if no user is found, error
             if(!dbUserData) {
