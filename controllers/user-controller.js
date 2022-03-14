@@ -71,8 +71,12 @@ const userController = {
             res.json(dbUserData);
         })
         .catch(err => res.status(404).json(err));
-    }
-    
+    },
+
+    // add Friend - self reference User model
+
+    // delete Friend - self reference User model
+
     // Bonus remove a user's associated thoughts when deleted - remove thoughts when user is deleted
 };
 
