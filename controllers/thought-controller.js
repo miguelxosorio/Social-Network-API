@@ -31,8 +31,23 @@ const thoughtController = {
     },
     
     // POST to create a new thought(don't forget to push the created thought's _id to the assoc user's thoughts array field)
-    createThought() {
-
+    createThought({ params, body }, res) {
+        Thought.create(body)
+        .then(({ _id }) => {
+            return User.findOneAndUpdate(
+                { _id: params.userId }, // upon creating a thought, it belongs to a user
+                { $push: { thoughts: _id } }, // push method to add the thought's _id to a specific user, adds the data to the thoughts array 
+                { new: true } // passed the option of new: true, we're receiving back the updated user data (the user with the new thought included)
+            );
+        })
+        .then(dbUserData => {
+            if(!dbUserData) {
+                res.status(404).json({ message: 'No User found with this id' });
+                return;
+            }
+            res.json(dbUserData);
+        })
+        .catch(err => res.json(err));
     },
     
     // PUT to update a thought by its _id
