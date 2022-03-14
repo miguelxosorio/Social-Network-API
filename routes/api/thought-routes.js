@@ -6,8 +6,10 @@ const { createThought } = require('../../controllers/thought-controller')
 
 // Routes
 // GET all thoughts, POST a thought - /api/thoughts
+
+// api/thoughts/userId
 router
-.route('/')
+.route('/:userId')
 .post(createThought);
 
 

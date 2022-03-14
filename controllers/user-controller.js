@@ -74,9 +74,13 @@ const userController = {
     },
 
     // add Friend - self reference User model
-
+    addFriend() {
+        User.findOneAndUpdate()
+    },
     // delete Friend - self reference User model
-
+    deleteFriend() {
+        User.findOneAndDelete()
+    },
     // Bonus remove a user's associated thoughts when deleted - remove thoughts when user is deleted
 };
 
