@@ -4,7 +4,7 @@ const { Schema, model, Types } = require('mongoose');
 // moment
 const moment = require('moment');
 
-// importing reaction model
+// importing reaction Schema
 const ReactionSchema = require('./Reaction');
 
 // Schema Constructor
