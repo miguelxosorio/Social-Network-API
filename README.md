@@ -8,13 +8,16 @@ Social Network API - Backend, has CRUD methods for users and their thoughts, als
 
 ## Table of Contents
 
+* [Link](#link)
 * [Framework](#framework)
 * [License](#license)
 * [Contributing](#contributing)
 * [Questions](#questions)
 * [Resources](#resources)
 
-[video link](https://drive.google.com/file/d/1X_vNpNxtYOmz1BygHgyD0T3aJ20NpF81/view?usp=sharing)
+## Link
+
+* [video link](https://drive.google.com/file/d/1X_vNpNxtYOmz1BygHgyD0T3aJ20NpF81/view?usp=sharing)
 
 ## Framework
 
